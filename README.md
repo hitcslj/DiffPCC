@@ -1,5 +1,5 @@
-# AnchorFormer 
-This repository includes the pure code of AnchorFormer model in the paper. 
+# DiFFPCC 
+Occupancy Diffusion for Point Cloud Completion
 
 # UPDATE
 * 2023-07-28: update a pretrained model on PCN.
