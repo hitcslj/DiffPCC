@@ -1,0 +1,27 @@
+optimizer : {
+  type: AdamW,
+  kwargs: {
+  lr : 0.0002,
+  weight_decay : 0.0005
+}}  
+
+dataset : {
+  train : { _base_: cfgs/dataset_configs/ShapeNet-55.yaml, 
+            others: {subset: 'train'}},
+  val : { _base_: cfgs/dataset_configs/ShapeNet-55.yaml, 
+            others: {subset: 'test'}},
+  test : { _base_: cfgs/dataset_configs/ShapeNet-55.yaml, 
+            others: {subset: 'test'}}}
+            
+model : {
+  NAME: DiffPC, model_type: 'DiT', voxel_size: 48, num_classes: 55, loss_type: 'mse', model_mean_type: 'eps', model_var_type: 'fixedsmall', beta_start: 0.0001, beta_end: 0.02, schedule_type: 'linear', time_num: 2000,
+  ckpt: ''}     
+ 
+occnet : {
+  NAME: OccNet, trans_dim: 384, num_encoder_blk: 8, num_decoder_blk: 6, knn_layer: 1, ckpt: '/home/guoqing/DiffPC/experiments/OccNet/ShapeNet55_models/try_to_train_occnet_airplane/ckpt-best.pth'}  
+
+total_bs : 8             
+step_per_update : 1 
+max_epoch : 200         
+saveIter: 10 
+use_ema: True 

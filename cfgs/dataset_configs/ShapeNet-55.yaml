@@ -1,0 +1,6 @@
+NAME: ShapeNet
+# DATA_PATH: /home/guoqing/DiffPC/data/data_split/ShapeNet55-34/ShapeNet-55
+DATA_PATH: /home/guoqing/DiffPC/data/data_split/ShapeNet55-34/ShapeNet-55/airplane
+N_POINTS: 8192
+PC_PATH: data/shapenet_pc 
+VOXEL_PATH: data/shapenet_voxel
